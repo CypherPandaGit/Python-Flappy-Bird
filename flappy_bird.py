@@ -52,4 +52,6 @@ class Bird:
         if d < 0 or self.y < self.height + 50:
             if self.tilt < self.MAX_ROTATION:
                 self.tilt = self.MAX_ROTATION
-                
+        else:
+            if self.tilt > -90:
+                self.tilt -= self.ROT_VEL

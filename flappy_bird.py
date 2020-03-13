@@ -4,7 +4,7 @@ import time
 import os
 import random
 
-WIN_WIDTH = 600
+WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
 
@@ -14,6 +14,7 @@ BIRD_IMAGES = [pygame.transform.scale2x(pygame.image.load(os.path.join("images",
 PIPE_IMAGE = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "pipe.png")))]
 BASE_IMAGE = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "base.png")))]
 BG_IMAGE = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bg.png")))]
+
 
 class Bird:
     IMAGES = BIRD_IMAGES
@@ -55,6 +56,7 @@ class Bird:
         else:
             if self.tilt > -90:
                 self.tilt -= self.ROT_VEL
+
     def draw(self, win):
         self.img_count += 1
 
@@ -62,7 +64,7 @@ class Bird:
             self.img = self.IMAGES[0]
         elif self.img_count < self.ANIMATION_TIME*2:
             self.img = self.IMAGES[1]
-        elif  self.img_count < self.ANIMATION_TIME*3:
+        elif self.img_count < self.ANIMATION_TIME*3:
             self.img = self.IMAGES[2]
         elif self.img_count < self.ANIMATION_TIME*4:
             self.img = self.IMAGES[1]
@@ -83,14 +85,14 @@ class Bird:
 
 
 def draw_window(win, bird):
-    win.blit(BG_IMAGE, (0,0))
+    win.blit(BG_IMAGE, (0, 0))
     bird.draw(win)
     pygame.display.update()
 
 
 def main():
-    bird = Bird(200,200)
-    windows =
+    bird = Bird(200, 200)
+    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 
     run = True
     while run:
@@ -102,4 +104,3 @@ def main():
 
     pygame.quit()
     quit()
-

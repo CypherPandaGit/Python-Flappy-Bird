@@ -109,6 +109,7 @@ def draw_window(win, bird):
 #         bird.move()
 #         draw_window(win, bird)
 #
-#     pygame.quit()
+#     pygame.qui
 #     quit()
+
 

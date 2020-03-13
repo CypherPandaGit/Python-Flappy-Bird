@@ -111,5 +111,3 @@ def draw_window(win, bird):
 #
 #     pygame.qui
 #     quit()
-
-

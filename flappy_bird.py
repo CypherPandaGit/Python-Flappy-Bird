@@ -7,13 +7,17 @@ import random
 WIN_WIDTH = 500
 WIN_HEIGHT = 800
 
+WIN = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+pygame.display.set_caption("Flappy Bird BETA")
 
 BIRD_IMAGES = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird1.png")))], \
               [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird2.png")))], \
               [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bird3.png")))]
-PIPE_IMAGE = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "pipe.png")))]
-BASE_IMAGE = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "base.png")))]
-BG_IMAGE = [pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bg.png")))]
+PIPE_IMAGE = pygame.transform.scale2x(pygame.image.load(os.path.join("images", "pipe.png")))
+BASE_IMAGE = pygame.transform.scale2x(pygame.image.load(os.path.join("images", "base.png")))
+BG_IMAGE = pygame.transform.scale2x(pygame.image.load(os.path.join("images", "bg.png")).convert_alpha(), (600, 900))
+
+gen = 0
 
 
 class Bird:
@@ -90,20 +94,20 @@ def draw_window(win, bird):
     pygame.display.update()
 
 
-def main():
-    bird = Bird(200, 200)
-    win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
-    clock = pygame.time.Clock()
-
-    run = True
-    while run:
-        clock.tick(30)
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                run = False
-
-        bird.move()
-        draw_window(win, bird)
-
-    pygame.quit()
-    quit()
+# def main():
+#     bird = Bird(200, 200)
+#     win = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
+#     clock = pygame.time.Clock()
+#
+#     run = True
+#     while run:
+#         clock.tick(30)
+#         for event in pygame.event.get():
+#             if event.type == pygame.QUIT:
+#                 run = False
+#
+#         bird.move()
+#         draw_window(win, bird)
+#
+#     pygame.quit()
+#     quit()
